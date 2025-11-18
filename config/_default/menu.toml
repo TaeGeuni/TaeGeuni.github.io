@@ -16,9 +16,10 @@ url = "https://github.com/TaeGeuni"
 icon = "brand-github"
 
 [[social]]
-identifier = "twitter"
-name = "Twitter"
-url = "https://twitter.com"
+identifier = "email"
+name = "Email"
+url = "#" 
 
 [social.params]
 icon = "mail"
+clipboard = "qoxorms1504@gmail.com"
