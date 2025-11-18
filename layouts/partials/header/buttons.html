@@ -1,0 +1,44 @@
+{{- $social := site.Menus.social }}
+{{- if $social }}
+<div class="social-menu">
+    {{- range $social }}
+        {{- $icon := .Params.icon }}
+
+        {{- if .Params.clipboard }}
+            <!-- 📌 이메일 복사 버튼 -->
+            <a  href="javascript:void(0)"
+                class="menu-button"
+                style="cursor:pointer;"
+                title="{{ .Name }}"
+                onclick="copyToClipboard('{{ .Params.clipboard }}')">
+                {{ partial "icon.html" $icon }}
+            </a>
+
+        {{- else }}
+            <!-- 🔗 일반 소셜 링크 버튼 -->
+            <a  href="{{ .URL | absURL }}"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="menu-button"
+                title="{{ .Name }}">
+                {{ partial "icon.html" $icon }}
+            </a>
+        {{- end }}
+
+    {{- end }}
+</div>
+
+<!-- 📋 클립보드 복사 기능 -->
+<script>
+function copyToClipboard(text) {
+    navigator.clipboard.writeText(text)
+        .then(() => {
+            alert("이메일 주소가 복사되었습니다: " + text);
+        })
+        .catch(err => {
+            console.error("이메일 복사 실패:", err);
+            alert("복사에 실패했습니다.");
+        });
+}
+</script>
+{{- end }}
