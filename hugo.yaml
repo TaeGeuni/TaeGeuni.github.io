@@ -1,0 +1,135 @@
+# 내 블로그 주소 (반드시 본인 아이디로 수정)
+baseURL: https://TaeGeuni.github.io/
+languageCode: en-us
+theme: Stack
+title: TaeGeuni's Tech Blog
+
+# 기본 언어 설정 (영어)
+DefaultContentLanguage: en
+hasCJKLanguage: false # 영어 블로그이므로 false로 변경 (한중일 문자 계산 안 함)
+
+languages:
+    # 여기가 중요! 아까는 ko였지만 en으로 변경됨
+    en:
+        languageName: English
+        title: TaeGeuni's Tech Blog
+        weight: 1
+        params:
+            sidebar:
+                subtitle: Back-end Developer
+
+# 댓글 시스템
+services:
+    disqus:
+        shortname: ""
+    googleAnalytics:
+        id: ""
+
+pagination:
+    pagerSize: 5
+
+permalinks:
+    post: /p/:slug/
+    page: /:slug/
+
+params:
+    mainSections:
+        - post
+    featuredImageField: image
+    rssFullContent: true
+    favicon: /favicon.ico
+
+    footer:
+        since: 2024
+        customText:
+
+    dateFormat:
+        published: "2006-01-02"
+        lastUpdated: "2006-01-02 15:04"
+
+    sidebar:
+        emoji: 💻
+        subtitle: Back-end Developer
+        avatar:
+            enabled: true
+            local: true
+            src: img/avatar.png # static/img/avatar.png 에 본인 사진을 넣으세요
+
+    article:
+        math: false
+        toc: true
+        readingTime: true
+        license:
+            enabled: true
+            default: Licensed under CC BY-NC-SA 4.0
+
+    comments:
+        enabled: false
+
+    colorScheme:
+        toggle: true
+        default: auto
+
+    imageProcessing:
+        cover:
+            enabled: true
+        content:
+            enabled: true
+
+# 메뉴 설정
+menu:
+    main:
+        - identifier: home
+          name: Home
+          url: /
+          weight: 1
+          params:
+              icon: home
+
+        - identifier: archives
+          name: Archives
+          url: /archives/
+          weight: 2
+          params:
+              icon: archives
+
+        - identifier: search
+          name: Search
+          url: /search/
+          weight: 3
+          params:
+              icon: search
+
+    social:
+        - identifier: github
+          name: GitHub
+          url: https://github.com/TaeGeuni
+          params:
+              icon: brand-github
+
+related:
+    includeNewer: true
+    threshold: 60
+    toLower: false
+    indices:
+        - name: tags
+          weight: 100
+        - name: categories
+          weight: 200
+
+markup:
+    goldmark:
+        renderer:
+            unsafe: true
+    tableOfContents:
+        endLevel: 4
+        ordered: true
+        startLevel: 2
+    highlight:
+        noClasses: false
+        codeFences: true
+        guessSyntax: true
+        lineNoStart: 1
+        lineNos: true
+        lineNumbersInTable: true
+        tabWidth: 4
